@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">httpP2</string>
+    <string-array name="categories_array">
+        <item>General</item>
+        <item>Negocios</item>
+        <item>Entretenimiento</item>
+        <item>Salud</item>
+        <item>Ciencia</item>
+        <item>Deportes</item>
+        <item>Tecnología</item>
+    </string-array>
+</resources>
