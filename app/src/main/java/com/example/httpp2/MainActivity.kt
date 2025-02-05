@@ -90,6 +90,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun searchByName(query: String?) {
+        binding.progressBar.visibility = View.VISIBLE
         lifecycleScope.launch(Dispatchers.IO) {
             try {
                 val apiService = retrofit.create(ApiService::class.java)
@@ -116,6 +117,9 @@ class MainActivity : AppCompatActivity() {
                         }
                     } else {
                         Log.d("MainActivity", "La lista de artículos está vacía.")
+                    }
+                    runOnUiThread {
+                        binding.progressBar.visibility = View.GONE
                     }
                 } else {
                     Log.e("MainActivity", "Error en la respuesta: ${response.errorBody()}")
