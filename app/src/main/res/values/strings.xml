@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">httpP2</string>
+    <string name="news_image">Imagen de la noticia</string>
     <string-array name="categories_array">
         <item>General</item>
         <item>Negocios</item>
