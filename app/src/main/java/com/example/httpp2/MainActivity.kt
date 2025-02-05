@@ -66,6 +66,7 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    // spinner de categorias
     private fun setupCategorySpinner() {
         val categories = resources.getStringArray(R.array.categories_array)
 
