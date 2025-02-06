@@ -50,6 +50,7 @@ class NewsAdapter(private var articles: List<Article>) : RecyclerView.Adapter<Ne
                     putExtra("description", article.description)
                     putExtra("urlToImage", article.urlToImage)
                     putExtra("sourceUrl", article.url)
+                    putExtra("content", article.content)
                 }
                 itemView.context.startActivity(intent)
             }

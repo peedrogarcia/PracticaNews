@@ -12,12 +12,25 @@
     <!-- Imagen de la noticia -->
     <ImageView
         android:id="@+id/ivNewsImage"
-        android:layout_width="0dp"
-        android:layout_height="200dp"
+        android:layout_width="366dp"
+        android:layout_height="377dp"
         android:scaleType="centerCrop"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Botón flotante para volver -->
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="8dp"
+        android:src="@drawable/ic_arrow_back"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/back_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ivNewsImage"
+        app:tint="@android:color/white" />
 
     <!-- Título de la noticia -->
     <TextView
@@ -27,6 +40,7 @@
         android:layout_marginTop="16dp"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:textColor="@android:color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ivNewsImage" />
@@ -35,33 +49,42 @@
     <TextView
         android:id="@+id/tvDescription"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:textSize="16sp"
+        android:textColor="@android:color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle"
-        app:layout_constraintBottom_toTopOf="@id/btnSource" />
+        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
-    <!-- Botón para abrir la fuente -->
-    <Button
-        android:id="@+id/btnSource"
-        android:layout_width="wrap_content"
+    <!-- Contenido completo de la noticia -->
+
+    <TextView
+        android:id="@+id/tvContent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Ver fuente"
+        android:layout_marginTop="8dp"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvDescription"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintVertical_bias="0.312" />
 
-    <!-- Botón para volver -->
-    <Button
-        android:id="@+id/btnBack"
+    <TextView
+        android:id="@+id/btnReadMore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Volver"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnSource"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:layout_marginBottom="24dp"
+        android:text="Leer más"
+        android:textColor="@color/purple_500"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.98"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
