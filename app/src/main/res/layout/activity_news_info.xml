@@ -7,19 +7,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
+    android:background="@color/background"
     tools:context=".NewsInfo">
 
-    <!-- Imagen de la noticia -->
-    <ImageView
-        android:id="@+id/ivNewsImage"
+    <!-- CardView para imagen con bordes redondeados -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewNewsImage"
         android:layout_width="366dp"
         android:layout_height="377dp"
-        android:scaleType="centerCrop"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <!-- Botón flotante para volver -->
+        <!-- Imagen de la noticia dentro del CardView -->
+        <ImageView
+            android:id="@+id/ivNewsImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Botón flotante para volver (por encima del CardView) -->
     <ImageButton
         android:id="@+id/btnBack"
         android:layout_width="48dp"
@@ -29,8 +39,9 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/back_button"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/ivNewsImage"
-        app:tint="@android:color/white" />
+        app:layout_constraintTop_toTopOf="@id/cardViewNewsImage"
+        app:tint="@android:color/white"
+        android:elevation="8dp" />
 
     <!-- Título de la noticia -->
     <TextView
@@ -41,9 +52,11 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@android:color/black"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivNewsImage" />
+        app:layout_constraintTop_toBottomOf="@id/cardViewNewsImage" />
 
     <!-- Descripción completa de la noticia -->
     <TextView
@@ -52,13 +65,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:textSize="16sp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:textColor="@android:color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
     <!-- Contenido completo de la noticia -->
-
     <TextView
         android:id="@+id/tvContent"
         android:layout_width="0dp"
@@ -66,6 +80,8 @@
         android:layout_marginTop="8dp"
         android:textColor="@android:color/black"
         android:textSize="14sp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -73,11 +89,13 @@
         app:layout_constraintTop_toBottomOf="@id/tvDescription"
         app:layout_constraintVertical_bias="0.312" />
 
+    <!-- Botón de leer más -->
     <TextView
         android:id="@+id/btnReadMore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
+        android:layout_marginEnd="8dp"
         android:text="Leer más"
         android:textColor="@color/purple_500"
         android:textSize="16sp"
@@ -85,6 +103,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.98"
         app:layout_constraintStart_toStartOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
