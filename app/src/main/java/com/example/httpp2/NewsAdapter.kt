@@ -1,5 +1,6 @@
 package com.example.httpp2
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -41,6 +42,17 @@ class NewsAdapter(private var articles: List<Article>) : RecyclerView.Adapter<Ne
                 .placeholder(R.drawable.placeholder_image)  // Imagen de carga
                 .error(R.drawable.error_image)             // Imagen en caso de error
                 .into(ivNewsImage)
+
+            // Configurar el click para abrir NewsInfo
+            itemView.setOnClickListener {
+                val intent = Intent(itemView.context, NewsInfo::class.java).apply {
+                    putExtra("title", article.title)
+                    putExtra("description", article.description)
+                    putExtra("urlToImage", article.urlToImage)
+                    putExtra("sourceUrl", article.url)
+                }
+                itemView.context.startActivity(intent)
+            }
         }
     }
 }
