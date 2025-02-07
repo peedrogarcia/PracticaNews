@@ -19,6 +19,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import android.view.View
 import android.widget.AdapterView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 
 
@@ -112,19 +113,23 @@ class MainActivity : AppCompatActivity() {
                     val newsResponse = response.body()
                     val articles = newsResponse?.articles ?: emptyList()
 
-                    if (articles.isNotEmpty()) {
-                        Log.d("MainActivity", "Primer artículo: ${articles[0].title}")
-                        runOnUiThread {
-                            NewsAdapter.updateData(articles)
-                        }
-                    } else {
-                        Log.d("MainActivity", "La lista de artículos está vacía.")
-                    }
                     runOnUiThread {
                         binding.progressBar.visibility = View.GONE
+
+                        if (articles.isNotEmpty()) {
+                            Log.d("MainActivity", "Primer artículo: ${articles[0].title}")
+                            NewsAdapter.updateData(articles)
+                        } else {
+                            // Mostrar el Toast en el hilo principal
+                            Toast.makeText(this@MainActivity, "No se encontraron artículos", Toast.LENGTH_SHORT).show()
+                        }
                     }
                 } else {
                     Log.e("MainActivity", "Error en la respuesta: ${response.errorBody()}")
+                    runOnUiThread {
+                        binding.progressBar.visibility = View.GONE
+                        Toast.makeText(this@MainActivity, "Error en la respuesta del servidor", Toast.LENGTH_SHORT).show()
+                    }
                 }
             } catch (e: Exception) {
                 Log.e("MainActivity", "Excepción en la petición: ${e.message}")
